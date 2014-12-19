@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ps aux | grep --color logstash | grep -v grep   && \
+ps aux | grep --color elastic | grep -v grep && \
+ps aux | grep --color kibana | grep -v grep
