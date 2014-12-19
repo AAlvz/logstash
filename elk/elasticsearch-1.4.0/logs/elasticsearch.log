@@ -1,0 +1,22 @@
+[2014-12-18 11:47:18,523][INFO ][node                     ] [Jack-in-the-Box] version[1.4.0], pid[1573], build[bc94bd8/2014-11-05T14:26:12Z]
+[2014-12-18 11:47:18,536][INFO ][node                     ] [Jack-in-the-Box] initializing ...
+[2014-12-18 11:47:18,624][INFO ][plugins                  ] [Jack-in-the-Box] loaded [], sites [kopf]
+[2014-12-18 11:47:24,389][INFO ][node                     ] [Jack-in-the-Box] initialized
+[2014-12-18 11:47:24,390][INFO ][node                     ] [Jack-in-the-Box] starting ...
+[2014-12-18 11:47:24,885][INFO ][transport                ] [Jack-in-the-Box] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.0.2.15:9300]}
+[2014-12-18 11:47:24,923][INFO ][discovery                ] [Jack-in-the-Box] elasticsearch/ZmAPecX8Svuqn9pctZOZaw
+[2014-12-18 11:47:28,725][INFO ][cluster.service          ] [Jack-in-the-Box] new_master [Jack-in-the-Box][ZmAPecX8Svuqn9pctZOZaw][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9300]], reason: zen-disco-join (elected_as_master)
+[2014-12-18 11:47:28,778][INFO ][http                     ] [Jack-in-the-Box] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.0.2.15:9200]}
+[2014-12-18 11:47:28,779][INFO ][node                     ] [Jack-in-the-Box] started
+[2014-12-18 11:47:29,879][INFO ][gateway                  ] [Jack-in-the-Box] recovered [4] indices into cluster_state
+[2014-12-18 11:48:56,699][INFO ][cluster.service          ] [Jack-in-the-Box] added {[logstash-vagrant-ubuntu-precise-64-1672-4082][Jsk87VWDQX6XYAJaYQlJBg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-vagrant-ubuntu-precise-64-1672-4082][Jsk87VWDQX6XYAJaYQlJBg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}])
+[2014-12-18 11:48:58,159][INFO ][cluster.metadata         ] [Jack-in-the-Box] [logstash-2014.12.18] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2014-12-18 11:48:59,003][INFO ][cluster.metadata         ] [Jack-in-the-Box] [logstash-2014.12.18] update_mapping [apache_access] (dynamic)
+[2014-12-18 16:34:17,046][INFO ][cluster.metadata         ] [Jack-in-the-Box] [logstash-2014.11.17] deleting index
+[2014-12-18 16:34:20,529][INFO ][cluster.metadata         ] [Jack-in-the-Box] [logstash-2014.11.18] deleting index
+[2014-12-18 16:34:25,377][INFO ][cluster.metadata         ] [Jack-in-the-Box] [logstash-2014.11.23] deleting index
+[2014-12-18 16:34:40,321][INFO ][cluster.metadata         ] [Jack-in-the-Box] [kibana-int] deleting index
+[2014-12-18 17:07:41,202][INFO ][node                     ] [Jack-in-the-Box] stopping ...
+[2014-12-18 17:07:41,600][INFO ][node                     ] [Jack-in-the-Box] stopped
+[2014-12-18 17:07:41,601][INFO ][node                     ] [Jack-in-the-Box] closing ...
+[2014-12-18 17:07:41,628][INFO ][node                     ] [Jack-in-the-Box] closed

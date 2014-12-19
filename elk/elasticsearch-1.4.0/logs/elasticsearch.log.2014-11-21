@@ -1,0 +1,648 @@
+[2014-11-21 10:06:07,011][INFO ][node                     ] [Spider-Man] version[1.4.0], pid[3299], build[bc94bd8/2014-11-05T14:26:12Z]
+[2014-11-21 10:06:07,012][INFO ][node                     ] [Spider-Man] initializing ...
+[2014-11-21 10:06:07,019][INFO ][plugins                  ] [Spider-Man] loaded [], sites []
+[2014-11-21 10:06:11,007][INFO ][node                     ] [Spider-Man] initialized
+[2014-11-21 10:06:11,007][INFO ][node                     ] [Spider-Man] starting ...
+[2014-11-21 10:06:11,222][INFO ][transport                ] [Spider-Man] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.0.2.15:9300]}
+[2014-11-21 10:06:11,251][INFO ][discovery                ] [Spider-Man] elasticsearch/kr5e32foQaycmze0zk6T8g
+[2014-11-21 10:06:15,070][INFO ][cluster.service          ] [Spider-Man] new_master [Spider-Man][kr5e32foQaycmze0zk6T8g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9300]], reason: zen-disco-join (elected_as_master)
+[2014-11-21 10:06:15,125][INFO ][http                     ] [Spider-Man] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.0.2.15:9200]}
+[2014-11-21 10:06:15,126][INFO ][node                     ] [Spider-Man] started
+[2014-11-21 10:06:15,166][INFO ][gateway                  ] [Spider-Man] recovered [0] indices into cluster_state
+[2014-11-21 10:12:53,557][INFO ][cluster.service          ] [Spider-Man] added {[logstash-vagrant-ubuntu-precise-64-3407-4010][XfQJN7q4RzCenEPp2EBm7g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-vagrant-ubuntu-precise-64-3407-4010][XfQJN7q4RzCenEPp2EBm7g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}])
+[2014-11-21 10:12:55,762][INFO ][cluster.metadata         ] [Spider-Man] [logstash-2011.05.18] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2014-11-21 10:12:56,373][INFO ][cluster.metadata         ] [Spider-Man] [logstash-2011.05.19] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2014-11-21 10:12:56,938][INFO ][cluster.metadata         ] [Spider-Man] [logstash-2011.05.18] update_mapping [apache_access] (dynamic)
+[2014-11-21 10:12:57,117][INFO ][cluster.metadata         ] [Spider-Man] [logstash-2011.05.19] update_mapping [apache_access] (dynamic)
+[2014-11-21 10:17:50,879][INFO ][node                     ] [Spider-Man] stopping ...
+[2014-11-21 10:17:51,029][INFO ][node                     ] [Spider-Man] stopped
+[2014-11-21 10:17:51,030][INFO ][node                     ] [Spider-Man] closing ...
+[2014-11-21 10:17:51,054][INFO ][node                     ] [Spider-Man] closed
+[2014-11-21 10:17:56,286][INFO ][node                     ] [Bob] version[1.4.0], pid[3763], build[bc94bd8/2014-11-05T14:26:12Z]
+[2014-11-21 10:17:56,287][INFO ][node                     ] [Bob] initializing ...
+[2014-11-21 10:17:56,297][INFO ][plugins                  ] [Bob] loaded [], sites [kopf]
+[2014-11-21 10:18:00,220][INFO ][node                     ] [Bob] initialized
+[2014-11-21 10:18:00,221][INFO ][node                     ] [Bob] starting ...
+[2014-11-21 10:18:00,420][INFO ][transport                ] [Bob] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.0.2.15:9300]}
+[2014-11-21 10:18:00,447][INFO ][discovery                ] [Bob] elasticsearch/F_sflQw1QtWrE7yRVddONQ
+[2014-11-21 10:18:04,263][INFO ][cluster.service          ] [Bob] new_master [Bob][F_sflQw1QtWrE7yRVddONQ][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9300]], reason: zen-disco-join (elected_as_master)
+[2014-11-21 10:18:04,328][INFO ][http                     ] [Bob] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.0.2.15:9200]}
+[2014-11-21 10:18:04,329][INFO ][node                     ] [Bob] started
+[2014-11-21 10:18:05,286][INFO ][gateway                  ] [Bob] recovered [2] indices into cluster_state
+[2014-11-21 10:18:06,170][INFO ][cluster.service          ] [Bob] added {[logstash-vagrant-ubuntu-precise-64-3407-4010][XfQJN7q4RzCenEPp2EBm7g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-vagrant-ubuntu-precise-64-3407-4010][XfQJN7q4RzCenEPp2EBm7g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}])
+[2014-11-21 10:22:49,707][INFO ][cluster.service          ] [Bob] removed {[logstash-vagrant-ubuntu-precise-64-3407-4010][XfQJN7q4RzCenEPp2EBm7g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-vagrant-ubuntu-precise-64-3407-4010][XfQJN7q4RzCenEPp2EBm7g][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}), reason transport disconnected
+[2014-11-21 10:23:16,038][INFO ][cluster.service          ] [Bob] added {[logstash-vagrant-ubuntu-precise-64-3842-4012][G-XD0BVdSeGmRQw7ZwoYzg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-vagrant-ubuntu-precise-64-3842-4012][G-XD0BVdSeGmRQw7ZwoYzg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}])
+[2014-11-21 10:31:48,065][INFO ][cluster.service          ] [Bob] removed {[logstash-vagrant-ubuntu-precise-64-3842-4012][G-XD0BVdSeGmRQw7ZwoYzg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-vagrant-ubuntu-precise-64-3842-4012][G-XD0BVdSeGmRQw7ZwoYzg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}), reason transport disconnected
+[2014-11-21 10:47:34,507][INFO ][cluster.metadata         ] [Bob] [shakespeare] creating index, cause [api], shards [5]/[1], mappings [_default_]
+[2014-11-21 10:51:37,049][INFO ][cluster.metadata         ] [Bob] [shakespeare] update_mapping [scene] (dynamic)
+[2014-11-21 10:51:37,081][INFO ][cluster.metadata         ] [Bob] [shakespeare] update_mapping [line] (dynamic)
+[2014-11-21 10:51:37,150][INFO ][cluster.metadata         ] [Bob] [shakespeare] update_mapping [act] (dynamic)
+[2014-11-21 11:28:33,463][INFO ][cluster.metadata         ] [Bob] [shakespeare] deleting index
+[2014-11-21 13:15:15,770][INFO ][cluster.service          ] [Bob] added {[logstash-vagrant-ubuntu-precise-64-4070-4010][XSiusTJDTxyoiO-tORmvOg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-vagrant-ubuntu-precise-64-4070-4010][XSiusTJDTxyoiO-tORmvOg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}])
+[2014-11-21 13:15:17,031][INFO ][cluster.metadata         ] [Bob] [logstash-2014.11.21] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2014-11-21 13:15:17,252][INFO ][cluster.metadata         ] [Bob] [logstash-2014.11.21] update_mapping [logs] (dynamic)
+[2014-11-21 13:34:41,806][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,816][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,807][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,819][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,807][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,827][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,807][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,807][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,831][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,832][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,806][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,834][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,829][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,820][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,834][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@511bad8d]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:34:41,841][DEBUG][action.search.type       ] [Bob] All shards failed for phase: [query]
+[2014-11-21 13:36:26,225][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,226][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,225][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,225][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,225][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,225][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,236][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,230][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,229][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,228][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,227][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,241][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,245][DEBUG][action.search.type       ] [Bob] All shards failed for phase: [query]
+[2014-11-21 13:36:26,239][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.19][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.19][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,238][DEBUG][action.search.type       ] [Bob] [logstash-2011.05.18][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2011.05.18][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:36:26,237][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@123e4eca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}},{"terms":{"_type":["logs"]}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:57:02,182][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][0], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7397be10] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"0.1s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"range":{"@timestamp":{"from":1416575698987,"to":1416575734953}}},{"range":{"@timestamp":{"from":1416575707616,"to":1416575726692}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:57:02,185][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][4], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7397be10]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"0.1s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"range":{"@timestamp":{"from":1416575698987,"to":1416575734953}}},{"range":{"@timestamp":{"from":1416575707616,"to":1416575726692}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:57:02,187][DEBUG][action.search.type       ] [Bob] All shards failed for phase: [query]
+[2014-11-21 13:57:02,185][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][3], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7397be10] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"0.1s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"range":{"@timestamp":{"from":1416575698987,"to":1416575734953}}},{"range":{"@timestamp":{"from":1416575707616,"to":1416575726692}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:57:02,184][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][2], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7397be10] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"0.1s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"range":{"@timestamp":{"from":1416575698987,"to":1416575734953}}},{"range":{"@timestamp":{"from":1416575707616,"to":1416575726692}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 13:57:02,183][DEBUG][action.search.type       ] [Bob] [logstash-2014.11.21][1], node[F_sflQw1QtWrE7yRVddONQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7397be10] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2014.11.21][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"@timestamp","value_field":"message","interval":"0.1s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"*"}},"filter":{"bool":{"must":[{"range":{"@timestamp":{"from":1416575698987,"to":1416575734953}}},{"range":{"@timestamp":{"from":1416575707616,"to":1416575726692}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassCastException: org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData cannot be cast to org.elasticsearch.index.fielddata.IndexNumericFieldData
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:199)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2014-11-21 14:32:59,658][INFO ][cluster.metadata         ] [Bob] [kibana-int] creating index, cause [auto(index api)], shards [5]/[1], mappings []
+[2014-11-21 14:32:59,892][INFO ][cluster.metadata         ] [Bob] [kibana-int] update_mapping [dashboard] (dynamic)
+[2014-11-21 14:34:19,763][INFO ][cluster.service          ] [Bob] removed {[logstash-vagrant-ubuntu-precise-64-4070-4010][XSiusTJDTxyoiO-tORmvOg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-vagrant-ubuntu-precise-64-4070-4010][XSiusTJDTxyoiO-tORmvOg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9301]]{client=true, data=false}), reason transport disconnected
+[2014-11-21 14:34:28,115][INFO ][node                     ] [Bob] stopping ...
+[2014-11-21 14:34:28,271][INFO ][node                     ] [Bob] stopped
+[2014-11-21 14:34:28,271][INFO ][node                     ] [Bob] closing ...
+[2014-11-21 14:34:28,284][INFO ][node                     ] [Bob] closed

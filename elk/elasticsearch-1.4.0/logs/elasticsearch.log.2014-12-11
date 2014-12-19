@@ -1,0 +1,1109 @@
+[2014-12-11 10:16:01,602][INFO ][node                     ] [Jericho Drumm] version[1.4.0], pid[1574], build[bc94bd8/2014-11-05T14:26:12Z]
+[2014-12-11 10:16:01,603][INFO ][node                     ] [Jericho Drumm] initializing ...
+[2014-12-11 10:16:01,671][INFO ][plugins                  ] [Jericho Drumm] loaded [], sites [kopf]
+[2014-12-11 10:16:07,756][INFO ][node                     ] [Jericho Drumm] initialized
+[2014-12-11 10:16:07,757][INFO ][node                     ] [Jericho Drumm] starting ...
+[2014-12-11 10:16:08,021][INFO ][transport                ] [Jericho Drumm] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.0.2.15:9300]}
+[2014-12-11 10:16:08,062][INFO ][discovery                ] [Jericho Drumm] elasticsearch/TKqjl0GMQOmMk2O0-laktg
+[2014-12-11 10:16:11,860][INFO ][cluster.service          ] [Jericho Drumm] new_master [Jericho Drumm][TKqjl0GMQOmMk2O0-laktg][vagrant-ubuntu-precise-64][inet[/10.0.2.15:9300]], reason: zen-disco-join (elected_as_master)
+[2014-12-11 10:16:11,913][INFO ][http                     ] [Jericho Drumm] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.0.2.15:9200]}
+[2014-12-11 10:16:11,913][INFO ][node                     ] [Jericho Drumm] started
+[2014-12-11 10:16:13,407][INFO ][gateway                  ] [Jericho Drumm] recovered [4] indices into cluster_state
+[2014-12-11 10:45:43,595][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 639747197 [610.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:45:43,601][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][2], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@11647811] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][2]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:45:43,763][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 637414867 [607.8mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:45:43,770][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][4], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@11647811] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][4]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:45:43,913][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 635151320 [605.7mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:45:43,914][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][3], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@11647811] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][3]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:45:43,936][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 637349207 [607.8mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:45:43,936][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][0], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@11647811] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][0]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:46:46,455][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 637633230 [608mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:46:46,509][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][3], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2101516b] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][3]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:46:46,511][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 638753218 [609.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:46:46,517][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][2], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2101516b] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][2]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:46:46,560][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 638017371 [608.4mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:46:46,561][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][4], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2101516b] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][4]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:46:46,733][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 639831117 [610.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:46:46,741][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][0], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2101516b] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][0]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:11,968][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 639831117 [610.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:11,973][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][0], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5b683744] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][0]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:12,005][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 638753218 [609.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:12,035][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][2], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5b683744] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][2]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:12,050][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 637633230 [608mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:12,052][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 638017371 [608.4mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:12,054][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][4], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5b683744] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][4]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:12,058][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][3], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5b683744] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][3]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:20,404][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 639831117 [610.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:20,441][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][0], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3f54bf22] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][0]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:20,455][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 638753218 [609.1mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:20,465][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][2], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3f54bf22] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][2]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:20,455][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 637633230 [608mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:20,473][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 638017371 [608.4mb] from field [request] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:48:20,478][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][4], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3f54bf22] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][4]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:48:20,480][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][3], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3f54bf22] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][3]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [request] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:54:51,226][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634346960 [604.9mb] from field [lang.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:54:51,227][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634351851 [604.9mb] from field [lang.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:54:51,230][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][4], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@72862d14] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][4]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:54:51,230][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634347755 [604.9mb] from field [lang.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:54:51,232][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][2], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@72862d14] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][2]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:54:51,230][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634349182 [604.9mb] from field [lang.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:54:51,235][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][1], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@72862d14] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][1]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:54:51,229][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][0], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@72862d14] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][0]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:54:51,345][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 637709431 [608.1mb] from field [lang.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:54:51,348][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][3], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@72862d14]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][3]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [lang.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:54:51,350][DEBUG][action.search.type       ] [Jericho Drumm] All shards failed for phase: [query]
+[2014-12-11 10:57:51,524][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634275228 [604.8mb] from field [agent.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:57:51,525][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634287785 [604.9mb] from field [agent.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:57:51,524][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634279042 [604.8mb] from field [agent.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:57:51,535][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][4], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4676dc6e] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][4]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:57:51,535][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][1], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4676dc6e] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][1]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:57:51,535][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634273848 [604.8mb] from field [agent.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:57:51,539][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][3], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4676dc6e] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][3]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:57:51,535][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][0], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4676dc6e] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][0]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:57:51,554][WARN ][indices.breaker          ] [Jericho Drumm] [FIELDDATA] New used memory 634279749 [604.8mb] from field [agent.raw] would be larger than configured breaker: 633785548 [604.4mb], breaking
+[2014-12-11 10:57:51,554][DEBUG][action.search.type       ] [Jericho Drumm] [logstash-2014.11.17][2], node[TKqjl0GMQOmMk2O0-laktg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4676dc6e]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2014.11.17][2]: query[ConstantScore(*:*)],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:80)
+	at org.elasticsearch.search.facet.terms.strings.TermsStringOrdinalsFacetExecutor$Collector.setNextReader(TermsStringOrdinalsFacetExecutor.java:212)
+	at org.elasticsearch.common.lucene.search.FilteredCollector.setNextReader(FilteredCollector.java:67)
+	at org.elasticsearch.common.lucene.MultiCollector.setNextReader(MultiCollector.java:68)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:612)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+Caused by: org.elasticsearch.common.util.concurrent.UncheckedExecutionException: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2203)
+	at org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3937)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4739)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache.load(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.index.fielddata.plain.AbstractIndexFieldData.load(AbstractIndexFieldData.java:74)
+	... 14 more
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [FIELDDATA] Data too large, data for [agent.raw] would be larger than limit of [633785548/604.4mb]
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.circuitBreak(ChildMemoryCircuitBreaker.java:97)
+	at org.elasticsearch.common.breaker.ChildMemoryCircuitBreaker.addEstimateBytesAndMaybeBreak(ChildMemoryCircuitBreaker.java:148)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData$PagedBytesEstimator.beforeLoad(PagedBytesIndexFieldData.java:217)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:89)
+	at org.elasticsearch.index.fielddata.plain.PagedBytesIndexFieldData.loadDirect(PagedBytesIndexFieldData.java:43)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:187)
+	at org.elasticsearch.indices.fielddata.cache.IndicesFieldDataCache$IndexFieldCache$1.call(IndicesFieldDataCache.java:174)
+	at org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4742)
+	at org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	at org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	... 18 more
+[2014-12-11 10:57:51,556][DEBUG][action.search.type       ] [Jericho Drumm] All shards failed for phase: [query]
+[2014-12-11 17:03:45,278][INFO ][node                     ] [Jericho Drumm] stopping ...
+[2014-12-11 17:03:45,472][INFO ][node                     ] [Jericho Drumm] stopped
+[2014-12-11 17:03:45,472][INFO ][node                     ] [Jericho Drumm] closing ...
+[2014-12-11 17:03:45,493][INFO ][node                     ] [Jericho Drumm] closed
