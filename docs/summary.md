@@ -86,12 +86,13 @@ How?
 ----
 
   The full implementation is known as [ELK](http://www.elasticsearch.org/overview/) (open soruce)
-     - **Elasticsearch** is a search and analytics engine.
+
+  - **Elasticsearch** is a search and analytics engine.
      Thanks to it almost any action can be performed using
      a simple **RESTful API** using JSON over HTTP. It is easy to **scale**
      it supports **advanced search features** and [indexing](http://lucene.apache.org/core/)
-     - **Logstash** will be used to parse and enrich the data.
-     - **Kibana** is the elasticsearch visualization engine.
+  - **Logstash** will be used to parse and enrich the data.
+  - **Kibana** is the elasticsearch visualization engine.
      It allows dynamic interaction with the data
 
 _________________________________________________________
