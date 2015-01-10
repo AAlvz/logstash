@@ -106,3 +106,8 @@ Resources. What do I need to accomplish the goal?
   - Test server
   - Support
     (Kirill is supporting already to tackle this the best as possible)
+
+Also would help:
+
+  - Elasticsearch meetup 12th of January in Cologne.
+  - Elasticsearch conferences in Germany in January
