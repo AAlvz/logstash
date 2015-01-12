@@ -36,6 +36,8 @@ Motivation & Benefits  - Why?
       - Analytics
       - Response to Failures.
       - Feedback
+      - Consistency
+      - Centralized logs
 
   - Faster Reaction
   - Improve Media time to Repair (MTTR)
@@ -111,3 +113,9 @@ Also would help:
 
   - Elasticsearch meetup 12th of January in Cologne.
   - Elasticsearch conferences in Germany in January
+
+What else can be logged:
+
+  - Emails
+  - AdBlockings. Was it effective? How does it impact traffic?
+  - Server performance (loads)
