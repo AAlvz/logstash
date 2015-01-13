@@ -49,7 +49,7 @@ Motivation & Benefits  - Why?
      - Statistics
      - Debbugging
      - Data Access & Manipulation (Data proccesing returns JSON)
-     - Choices [Buisness | Development]
+     - Choices [Business | Development]
      - Debugging (on the fly)
      - Search of information (of processes data)
 
