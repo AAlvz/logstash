@@ -6,6 +6,8 @@ Tasks
 In order of priority
 
 - [ ] Puppetize everything.
+- [X] Manipulate Elasticsearch manually.
+- [X] ElasticsearchAPI with cURL
 - [ ] Where are the aggregations?
 - [ ] Make aggregations manually. (code)
 - [ ] Parese everything in JSON and send it to Kirill.
