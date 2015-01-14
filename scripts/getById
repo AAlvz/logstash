@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ $# != 4 ]]
+  then
+  echo "You are not using the script the way you should"
+  echo "Use './elasticsearch ['host'] ['index'] ['field'] ['id']' "
+  exit
+fi
+
+curl -XGET "http://$1:9200/$2/$3/$4" | python -m json.tool

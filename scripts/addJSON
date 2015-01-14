@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ $# < 3 ]]
+  then
+  echo "You are not using the script the way you should"
+  echo "Use './elasticsearch ['host'] ['index'] ['field'] ['id']' "
+  exit
+fi
+
+# add with random id
+if [[ $# == 3 ]]
+  then
+  curl -XPOST "http://$1:9200/$2/$3" -d @jsonpostfile | python -m json.tool
+
+# add with defined id
+elif [[ $# == 4 ]]
+  then
+  curl -XPUT "http://$1:9200/$2/$3/$4" -d @jsonpostfile | python -m json.tool
+fi
+exit
