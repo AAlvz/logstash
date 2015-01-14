@@ -1,0 +1,10 @@
+{
+  "query": {
+    "query_string": {
+      "query": "drama"
+    }
+  },
+  "filter": {
+    "term": { "year": 1962 }
+  }
+}

@@ -1,0 +1,8 @@
+{"query": {
+  "constant_score": {
+    "filter": {
+      "term": { "director.original": "Robert Mulligan" }
+     }
+  }
+}
+}
