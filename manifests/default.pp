@@ -9,6 +9,7 @@ Exec {
 }
 
 $es_repo = "deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
+$ls_repo = "deb http://packages.elasticsearch.org/logstash/1.4/debian stable main"
 
 exec {'update':
   user    => root,
@@ -34,12 +35,13 @@ exec {'add_es_repository':
   command => "echo \"${es_repo}\" | sudo tee -a /etc/apt/sources.list && sudo apt-get update -y",
 } ->
 
-package {'elasticsearch':} ->
+exec {'add_ls_repository':
+  user    => root,
+  command => "echo \"${ls_repo}\" | sudo tee -a /etc/apt/sources.list && sudo apt-get update -y",
+} ->
 
-# exec {'start_es_at_boot':
-#   user    => root,
-#   command => "sudo update-rc.d elasticsearch defaults 95 10",
-# } ->
+package {'elasticsearch':} ->
+package {'logstash':} ->
 
 service {'elasticsearch':
   ensure => running,
