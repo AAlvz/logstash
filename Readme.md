@@ -27,6 +27,10 @@ To process logs run:
 
 `logstash-1.4.2/bin/logstash -f logstash.conf`
 
+After that you can view the data in:
+
+`192.168.33.10:5601`
+
 Make sure:
 
   - The log files are in the appropiate folder (I normally use /tmp)
