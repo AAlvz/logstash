@@ -13,5 +13,11 @@ class elk::logstash {
 
   package {'logstash':
     ensure => installed,
-  }
+  } ->
+
+  # exec {'initiate_logstash_tcp':
+  #   user    => 'vagrant',
+  #   command => '/opt/logstash/bin/logstash -f /vagrant/logstash_configs/simple_apache_tcp.conf &',
+  # }
+
 }
