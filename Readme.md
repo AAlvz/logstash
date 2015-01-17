@@ -17,15 +17,13 @@ $ `vagrant ssh`
 
 $ `./kibana-4.0.0-beta3/bin/kibana`
 
-To load data to elasticsearch using logstash (currently any apache logs can be used):
+To load data to elasticsearch using logstash (normal apache logs currently):
 
-$ `cp /vagrant/{my_logs} /tmp/apache_logs`
+nc 192.168.33.10  3333 < apache_log
 
-$ `/opt/logstash/bin/logstash -f /vagrant/logstash_configs/logstash.conf`
+To make tests with different logstash config files:
 
-To process logs run:
-
-`logstash-1.4.2/bin/logstash -f logstash.conf`
+`vagrant@elk$ logstash-1.4.2/bin/logstash -f test_logstash.conf`
 
 After that you can view the data in:
 
@@ -33,6 +31,4 @@ After that you can view the data in:
 
 Make sure:
 
-  - The log files are in the appropiate folder (I normally use /tmp)
-  - The Nginx file is set properly on sites-available
-  - Run ElasticS -> Logstash -> Kibana
+  - The log files path match the one used in logstash config file. (I normally use /tmp)
