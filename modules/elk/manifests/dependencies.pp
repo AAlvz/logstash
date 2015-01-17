@@ -11,6 +11,7 @@ class elk::dependencies{
   }
 
   package {'emacs':
-    ensure => present,
+    ensure  => present,
+    require => Exec['update'],
   }
 }
