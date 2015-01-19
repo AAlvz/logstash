@@ -8,7 +8,7 @@ class elk::dependencies{
 
   package {'openjdk-7-jdk':
     ensure => present,
-  }
+  } ->
 
   package {'emacs':
     ensure => present,

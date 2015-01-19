@@ -3,36 +3,27 @@ logstash tests.
 ---------------
 
 
-Readme file will improve in the future.
+Readme file will keep improving.
 
 This is an introduction to ELK.
 
 Now you can provision everything with puppet.
 
-After that, you need to turn on kibana (to visualize the data):
+After provision:
 
-Run this:
+To send logs to the vagrant instance you can use:
 
-$ `vagrant ssh`
+`nc 192.168.33.10 3333 < apache_logs_file`
 
-$ `./kibana-4.0.0-beta3/bin/kibana`
-
-To load data to elasticsearch using logstash (currently any apache logs can be used):
-
-$ `cp /vagrant/{my_logs} /tmp/apache_logs`
-
-$ `/opt/logstash/bin/logstash -f /vagrant/logstash_configs/logstash.conf`
-
-To process logs run:
-
-`logstash-1.4.2/bin/logstash -f logstash.conf`
-
-After that you can view the data in:
+and after that visualize everything in:
 
 `192.168.33.10:5601`
+
+If you want to test different logstash configurations this is the command to use
+(Inside the Vagrant machine)
+
+`logstash-1.4.2/bin/logstash -f /path/to/logstash.conf`
 
 Make sure:
 
   - The log files are in the appropiate folder (I normally use /tmp)
-  - The Nginx file is set properly on sites-available
-  - Run ElasticS -> Logstash -> Kibana

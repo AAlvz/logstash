@@ -14,6 +14,11 @@ class elk::kibana {
   exec {'extract_kibana':
     command => "tar -zxvf kibana-4.0.0-beta3.tar.gz",
     unless  => 'test -d /home/vagrant/kibana-4.0.0-beta3/',
+  } ->
+
+  exec {'initiate_kibana':
+    command => '/home/vagrant/kibana-4.0.0-beta3/bin/kibana &',
+    require => Class['elk::elasticsearch'],
   }
 
 }
