@@ -18,25 +18,11 @@ class elk::elasticsearch {
     user    => 'vagrant',
     command => 'tar -zxvf elasticsearch-1.4.2.tar.gz',
     unless  => 'test -d /home/vagrant/elasticsearch-1.4.2/',
+  } ->
+
+  exec {'initiate_ES':
+    user    => 'vagrant',
+    command => '/home/vagrant/elasticsearch-1.4.2/bin/elasticsearch &',
   }
-
-  # exec {'initiate_ES':
-  #   user    => 'vagrant',
-  #   command => '/home/vagrant/elasticsearch-1.4.2/bin/elasticsearch &',
-  # }
-
-  # exec {'get_elasticsearch_gpg_key':
-  #   user    => 'vagrant',
-  #   cwd     => '/home/vagrant/',
-  #   command => 'wget https://packages.elasticsearch.org/GPG-KEY-elasticsearch',
-  #   unless  => 'test -f /home/vagrant/GPG-KEY-elasticsearch',
-  # } ->
-
-  # exec {'add_elasticsearch_key':
-  #   cwd     => '/home/vagrant/',
-  #   user    => root,
-  #   command => 'sudo apt-key add GPG-KEY-elasticsearch',
-  #   unless  => 'sudo apt-key list | grep -c elasticsearch'
-  # }
 
 }
