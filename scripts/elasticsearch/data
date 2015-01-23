@@ -3,21 +3,21 @@
 if [[ $# != 2 ]]
   then
   echo "You are not using the script the way you should"
-  echo "Use './elasticsearch ['host'] ['action']' "
+  echo "Use './data ['host'] ['action']' "
   echo "Possible actions: deleteall getall getindexes "
   exit
 fi
 
 if [[ $2 == "deleteall" ]]
   then
-  curl -XDELETE 'http://$1:9200/*/'
+  curl -XDELETE 'http://'$1':9200/*/'
 
 elif [[ $2 == "getall" ]]
   then
-  curl -XGET '$1:9200/_search' | python -m json.tool
+  curl -XGET $1':9200/_search' | python -m json.tool
 
 elif [[ $2 == "getindexes" ]]
   then
-  curl '$1:9200/_cat/indices?v'
+  curl $1':9200/_cat/indices?v'
 fi
 exit
