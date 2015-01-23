@@ -22,7 +22,7 @@ and after that visualize everything in:
 If you want to test different logstash configurations this is the command to use
 (Inside the Vagrant machine)
 
-`logstash-1.4.2/bin/logstash -f /path/to/logstash.conf`
+`/opt/logstash/bin/logstash -f /path/to/logstash.conf`
 
 Make sure:
 
