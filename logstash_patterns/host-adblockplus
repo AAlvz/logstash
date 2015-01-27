@@ -1,3 +1,4 @@
+#GrokDebbuger "(?<hostabp>[a-zA-Z0-9._-]+\.adblockplus\.org)"
 HOSTABP [a-zA-Z0-9._-]+\.adblockplus\.org
 NGUSERNAME [a-zA-Z\.\@\-\+_%]+
 NGUSER %{NGUSERNAME}
