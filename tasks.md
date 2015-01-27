@@ -11,9 +11,9 @@ In order of priority
 - [X] Split `lang` variable to display the main language.
 - [X] Better filter for browser. Analyzed user agent.
 - [X] Improve filter of request
-- [ ] Parse everything with NGINX grok patterns
-- [ ] Check parsing URI plugin. Not manually.
-- [ ] Add geoip
+- [X] Parse everything with NGINX grok patterns
+- [X] Check parsing URI plugin. Not manually.
+- [X] Add geoip
 - [ ] Test with full logs
 - [ ] Where are the aggregations?
 - [ ] Make aggregations manually. (code)
