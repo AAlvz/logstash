@@ -3,7 +3,7 @@
 if [[ $# != 4 ]]
   then
   echo "You are not using the script the way you should"
-  echo "Use './getById ['host'] ['index'] ['field'] ['id']' "
+  echo "Use './getById ['host'] ['index'] ['type'] ['id']' "
   exit
 fi
 
