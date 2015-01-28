@@ -15,6 +15,9 @@ In order of priority
 - [X] Check parsing URI plugin. Not manually.
 - [X] Add geoip
 - [X] Test with full logs
+- [ ] Parse resource (request url)
+- [ ] Make aggregations for downloads (code & kibana)
+- [ ] Make aggregations with addoname (The ones Kirill asked) (code & kibana)
 - [ ] Where are the aggregations?
 - [ ] Make aggregations manually. (code)
 - [X] Parese everything in JSON and send it to Kirill.
