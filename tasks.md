@@ -11,6 +11,9 @@ In order of priority
 - [X] Split `lang` variable to display the main language.
 - [X] Better filter for browser. Analyzed user agent.
 - [X] Improve filter of request
+- [X] Parse everything with NGINX grok patterns
+- [X] Check parsing URI plugin. Not manually.
+- [X] Add geoip
 - [ ] Test with full logs
 - [ ] Where are the aggregations?
 - [ ] Make aggregations manually. (code)
@@ -20,3 +23,12 @@ In order of priority
 - [ ] Index failures and filter them
 - [X] Better filtering for Adblock value at the end of some logs.
 - [ ] Clean up code.
+
+REMEMBER
+
+- No filtering before indexing
+- Early optimization is the root of all evil
+
+IMPORTANT
+- How many downlads
+- ABP reviews
