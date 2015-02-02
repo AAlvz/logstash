@@ -18,6 +18,7 @@ In order of priority
 - [X] Parse resource (request url)
 - [ ] Make aggregations for downloads (code & kibana)
 - [ ] Make aggregations with addoname (The ones Kirill asked) (code & kibana)
+- [ ] Improve puppet module to parse abp nginx logs in port 3333 at boot.
 - [ ] Where are the aggregations?
 - [ ] Make aggregations manually. (code)
 - [X] Parese everything in JSON and send it to Kirill.
@@ -31,6 +32,7 @@ REMEMBER
 
 - No filtering before indexing
 - Early optimization is the root of all evil
+- Facets are deprecated
 
 IMPORTANT AGGREGATIONS
 - How many downlads
