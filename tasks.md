@@ -33,6 +33,12 @@ REMEMBER
 - No filtering before indexing
 - Early optimization is the root of all evil
 - Facets are deprecated
+Use the /{index}/{type}/{id}/_source endpoint to get just the _source field of the document.
+Without any additional content around it.
+For example:
+curl -XGET 'localhost:9200/.kibana/visualization/_search?' | python -m json.too
+curl -XGET 'http://localhost:9200/.kibana/visualization/Users-per-country/_source?_source_include=*.id&_source_exclude=entities'
+
 
 IMPORTANT AGGREGATIONS
 - How many downlads
