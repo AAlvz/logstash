@@ -44,3 +44,9 @@ IMPORTANT AGGREGATIONS
 - How many downlads
 - ABP reviews
 - How many people have adblock + adblock plus
+
+STRANGE DETAILS
+- Possible DDOS Attacks from time to time.
+- Some ips make a lot of requests.
+- Requestes are being made to chrome_supplement.txt
+  (apparently it was removed some time ago)
