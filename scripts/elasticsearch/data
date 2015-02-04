@@ -19,12 +19,10 @@ elif [[ $2 == "getall" ]]
 elif [[ $2 == "getindexes" ]]
   then
   curl $1':9200/_cat/indices?v'
-fi
 
 elif [[ $2 == "getvisualizations" ]]
   then
   curl -XGET $1':9200/.kibana/visualization/_search?'
-fi
 
 elif [[ $2 == "getdashboard" ]]
   then
