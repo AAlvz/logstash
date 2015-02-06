@@ -16,11 +16,13 @@ In order of priority
 - [X] Add geoip
 - [X] Test with full logs
 - [X] Parse resource (request url)
+- [X] Scripted fields to make better aggregations
+- [ ] Fix failed parsing with israellist logs
 - [ ] Make aggregations for downloads (code & kibana)
 - [ ] Make aggregations with addoname (The ones Kirill asked) (code & kibana)
 - [ ] Improve puppet module to parse abp nginx logs in port 3333 at boot.
-- [ ] Where are the aggregations?
-- [ ] Make aggregations manually. (code)
+- [X] Where are the aggregations?
+- [X] Know how to make aggregations manually. (code)
 - [X] Parese everything in JSON and send it to Kirill.
 - [X] Recieve JSON, parse it, and display it.
 - [X] Store all the failures while parsing.
@@ -50,3 +52,6 @@ STRANGE DETAILS
 - Some ips make a lot of requests.
 - Requestes are being made to chrome_supplement.txt
   (apparently it was removed some time ago)
+
+WHAT ELSE CAN BE DONE
+- Implement notifications if something occurs.
