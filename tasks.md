@@ -17,6 +17,8 @@ In order of priority
 - [X] Test with full logs
 - [X] Parse resource (request url)
 - [X] Scripted fields to make better aggregations
+- [X] Fix aggregation with ip_agent
+- [ ] Puppet to stop 'logstash-web' service
 - [ ] Fix failed parsing with israellist logs
 - [ ] Make aggregations for downloads (code & kibana)
 - [ ] Make aggregations with addoname (The ones Kirill asked) (code & kibana)
@@ -55,3 +57,6 @@ STRANGE DETAILS
 
 WHAT ELSE CAN BE DONE
 - Implement notifications if something occurs.
+
+IDEAS:
+- Active users -> The ones whose Chrome browser has checked for an update
