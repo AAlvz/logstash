@@ -18,6 +18,8 @@ In order of priority
 - [X] Parse resource (request url)
 - [X] Scripted fields to make better aggregations
 - [X] Fix aggregation with ip_agent
+- [X] Initial setup virtual machine for testing
+- [ ] Puppet configuration for initial setup. 
 - [ ] Puppet to stop 'logstash-web' service
 - [ ] Fix failed parsing with israellist logs
 - [ ] Make aggregations for downloads (code & kibana)
