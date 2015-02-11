@@ -1,4 +1,6 @@
-class elk::logstash {
+class elk::logstash(
+  $user = $elk::params::user
+) inherits elk::params {
   include elk::elasticsearch
 
   $ls_repo = "deb http://packages.elasticsearch.org/logstash/1.4/debian stable main"
@@ -24,8 +26,8 @@ class elk::logstash {
   }
 
   # exec {'initiate_logstash_tcp':
-  #   user    => 'vagrant',
-  #   command => '/opt/logstash/bin/logstash -f /vagrant/logstash_configs/simple_apache_tcp.conf &',
+  #   user    => '${user}',
+  #   command => '/opt/logstash/bin/logstash -f /${user}/logstash_configs/simple_apache_tcp.conf &',
   # }
 
 }
