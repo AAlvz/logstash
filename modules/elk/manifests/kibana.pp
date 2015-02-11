@@ -16,6 +16,10 @@ class elk::kibana {
     unless  => 'test -d /home/vagrant/kibana-4.0.0-beta3/',
   } ->
 
+  exec {'initiate_kibana':
+    command => '/home/vagrant/kibana-4.0.0-beta3/bin/kibana &',
+  } ->
+
   cron {'initiate_kibana':
     command => '/home/vagrant/kibana-4.0.0-beta3/bin/kibana',
     user    => vagrant,

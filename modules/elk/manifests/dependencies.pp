@@ -1,4 +1,9 @@
 class elk::dependencies{
+
+  Package {
+    ensure => installed,
+  }
+
   exec {'update':
     user     => root,
     command  => 'sudo apt-get update -y --fix-missing',
@@ -6,8 +11,10 @@ class elk::dependencies{
     path     => ["/bin", "/usr/bin", "/usr/sbin"],
   } ->
 
-  package {'openjdk-7-jdk':
-    ensure => present,
-  }
+  package {'openjdk-7-jdk':} ->
+
+  package {'git':} ->
+
+  package {'emacs':}
 
 }

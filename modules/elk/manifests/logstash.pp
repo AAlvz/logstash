@@ -21,11 +21,11 @@ class elk::logstash {
 
   service {'logstash-web':
     ensure => stopped,
-  } ->
-
-  exec {'initiate_logstash_tcp':
-    user    => 'vagrant',
-    command => '/opt/logstash/bin/logstash -f /vagrant/logstash_configs/simple_apache_tcp.conf &',
   }
+
+  # exec {'initiate_logstash_tcp':
+  #   user    => 'vagrant',
+  #   command => '/opt/logstash/bin/logstash -f /vagrant/logstash_configs/simple_apache_tcp.conf &',
+  # }
 
 }
