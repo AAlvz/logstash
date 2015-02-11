@@ -1,0 +1,75 @@
+{
+    "_shards": {
+        "failed": 0,
+        "successful": 1,
+        "total": 1
+    },
+    "hits": {
+        "hits": [
+            {
+                "_id": "First-Dashboard",
+                "_index": ".kibana",
+                "_score": 1.0,
+                "_source": {
+                    "description": "",
+                    "hits": 0,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\"}}}]}"
+                    },
+                    "panelsJSON": "[{\"col\":1,\"row\":8,\"size_x\":6,\"size_y\":7,\"visId\":\"Weekly-active-users-(Top)\"},{\"col\":10,\"row\":1,\"size_x\":3,\"size_y\":5,\"visId\":\"Top-Browsers-of-Top-Countries.-(Pie)\"},{\"col\":7,\"row\":10,\"size_x\":6,\"size_y\":2,\"visId\":\"Users-per-country\"},{\"col\":7,\"row\":12,\"size_x\":6,\"size_y\":3,\"visId\":\"Top-10-Browsers\\\\\"},{\"col\":1,\"row\":1,\"size_x\":9,\"size_y\":7,\"visId\":\"Map-requests\"},{\"visId\":\"DDOS-questionmark-\",\"size_x\":3,\"size_y\":4,\"col\":10,\"row\":6},{\"visId\":\"Adblock-+-AdblockPlus-Percentage\",\"size_x\":3,\"size_y\":2,\"col\":7,\"row\":8}]",
+                    "title": "First Dashboard"
+                },
+                "_type": "dashboard"
+            },
+            {
+                "_id": "User-Growth",
+                "_index": ".kibana",
+                "_score": 1.0,
+                "_source": {
+                    "description": "",
+                    "hits": 0,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\"}}}]}"
+                    },
+                    "panelsJSON": "[{\"col\":1,\"row\":1,\"size_x\":3,\"size_y\":5,\"visId\":\"Top-Browsers-of-Top-Countries.-(Pie)\"},{\"col\":7,\"row\":3,\"size_x\":3,\"size_y\":5,\"visId\":\"Users-per-country\"},{\"col\":7,\"row\":1,\"size_x\":3,\"size_y\":2,\"visId\":\"Adblock-+-AdblockPlus-Percentage\"},{\"col\":1,\"row\":6,\"size_x\":3,\"size_y\":4,\"visId\":\"Users-by-Time\"},{\"col\":10,\"row\":6,\"size_x\":3,\"size_y\":2,\"visId\":\"Active-users-(Top)\"},{\"col\":10,\"row\":1,\"size_x\":3,\"size_y\":2,\"visId\":\"Unique-IP's\"},{\"col\":10,\"row\":3,\"size_x\":3,\"size_y\":3,\"visId\":\"Top-10-Browsers\\\\\"},{\"col\":1,\"row\":10,\"size_x\":12,\"size_y\":7,\"visId\":\"Map-requests\"},{\"col\":4,\"row\":6,\"size_x\":3,\"size_y\":4,\"visId\":\"Top-10-Languages\"},{\"visId\":\"Weekly-active-users-Per-Browser-(Top)\",\"size_x\":3,\"size_y\":5,\"col\":4,\"row\":1}]",
+                    "title": "User Growth"
+                },
+                "_type": "dashboard"
+            },
+            {
+                "_id": "Developers",
+                "_index": ".kibana",
+                "_score": 1.0,
+                "_source": {
+                    "description": "",
+                    "hits": 0,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\"}}}]}"
+                    },
+                    "panelsJSON": "[{\"visId\":\"DDOS-questionmark-\",\"size_x\":3,\"size_y\":5,\"col\":1,\"row\":3},{\"visId\":\"Adblock-+-AdblockPlus-Percentage\",\"size_x\":3,\"size_y\":2,\"col\":4,\"row\":4},{\"visId\":\"Top-10-Browsers\\\\\",\"size_x\":6,\"size_y\":4,\"col\":7,\"row\":10},{\"visId\":\"Bytes-Per-Country-in-Time\",\"size_x\":9,\"size_y\":3,\"col\":4,\"row\":1},{\"visId\":\"Active-users-(Top)\",\"size_x\":6,\"size_y\":6,\"col\":1,\"row\":8},{\"visId\":\"Unique-IP's\",\"size_x\":3,\"size_y\":2,\"col\":1,\"row\":1},{\"visId\":\"Top-Browsers-of-Top-Countries.-(Pie)\",\"size_x\":3,\"size_y\":2,\"col\":4,\"row\":6},{\"visId\":\"Top-Requests-per-Country\",\"size_x\":6,\"size_y\":6,\"col\":7,\"row\":4}]",
+                    "title": "Developers"
+                },
+                "_type": "dashboard"
+            },
+            {
+                "_id": "ABP-Statistics",
+                "_index": ".kibana",
+                "_score": 1.0,
+                "_source": {
+                    "description": "",
+                    "hits": 0,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\"}}}]}"
+                    },
+                    "panelsJSON": "[{\"col\":10,\"row\":1,\"size_x\":3,\"size_y\":5,\"visId\":\"Top-Browsers-of-Top-Countries.-(Pie)\"},{\"col\":7,\"row\":10,\"size_x\":6,\"size_y\":2,\"visId\":\"Users-per-country\"},{\"col\":7,\"row\":12,\"size_x\":6,\"size_y\":3,\"visId\":\"Top-10-Browsers\\\\\"},{\"col\":1,\"row\":1,\"size_x\":9,\"size_y\":7,\"visId\":\"Map-requests\"},{\"visId\":\"DDOS-questionmark-\",\"size_x\":3,\"size_y\":4,\"col\":10,\"row\":6},{\"visId\":\"Adblock-+-AdblockPlus-Percentage\",\"size_x\":3,\"size_y\":2,\"col\":7,\"row\":8},{\"visId\":\"Weekly-active-users-Per-Browser-(Top)\",\"size_x\":6,\"size_y\":7,\"col\":1,\"row\":8}]",
+                    "title": "ABP Statistics"
+                },
+                "_type": "dashboard"
+            }
+        ],
+        "max_score": 1.0,
+        "total": 4
+    },
+    "timed_out": false,
+    "took": 2
+}
