@@ -1,9 +1,8 @@
-class elk::elasticsearch(
-  $user = $elk::params::user
-) inherits elk::params {
+class elk::elasticsearch{
   include elk::dependencies
 
   $es_repo = "deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
+  $user = $elk::user
 
   Exec {
     path => ["/bin", "/usr/bin", "/usr/sbin"],

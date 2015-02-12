@@ -1,5 +1,10 @@
-class elk::dependencies{
-
+class elk::dependencies(
+  $user     = $elk::params::user,
+  $shell    = $elk::params::shell,
+  $password = $elk::params::password,
+  $comment  = $elk::params::comment
+) inherits elk::params{
+  include users
   Package {
     ensure => installed,
   }
@@ -15,6 +20,14 @@ class elk::dependencies{
 
   package {'git':} ->
 
-  package {'emacs':}
+  package {'emacs':} ->
+
+  package {'openssh-server':}
+
+  users::add {"${user}":
+    shell => $shell,
+    password_hash => $password,
+    comment => $comment,
+  }
 
 }

@@ -1,9 +1,8 @@
-class elk::logstash(
-  $user = $elk::params::user
-) inherits elk::params {
+class elk::logstash{
   include elk::elasticsearch
 
   $ls_repo = "deb http://packages.elasticsearch.org/logstash/1.4/debian stable main"
+  $user = $elk::user
 
   exec {'add_ls_repository':
     user    => root,

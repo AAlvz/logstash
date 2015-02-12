@@ -1,7 +1,6 @@
-class elk::kibana(
-  $user = $elk::params::user
-) inherits elk::params {
+class elk::kibana{
   $beta_kibana = "https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-beta3.tar.gz"
+  $user = $elk::user
 
   Exec {
     cwd  => "/home/${user}",
