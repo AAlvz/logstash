@@ -1,0 +1,83 @@
+{ 
+  "size":0, 
+  "aggs": { 
+    "distinct_date": { 
+      "cardinality": {
+        "field": "@timestamp",
+        "precision_threshold" : 100
+      }
+    },
+    "aggs": {
+      "distinct_addonName": {
+        "cardinality": {
+	  "field": "addonName",
+	  "precision_threshold" : 100
+	}
+      },
+      "aggs": {
+        "distinct_addonVersion": {
+          "cardinality": {
+	    "field": "addonVersion.raw",
+	    "precision_threshold" : 100
+	  }
+        },
+	"aggs": {
+      	  "distinct_application": {
+            "cardinality": {
+	      "field": "application.raw",
+	      "precision_threshold" : 100
+	    }
+      	  },
+	  "aggs": {
+      	    "distinct_appVersion": {
+              "cardinality": {
+	        "field": "applicationVersion.raw",
+	        "precision_threshold" : 100
+	      }
+      	    },
+	    "aggs": {
+      	      "distinct_os": {
+                "cardinality": {
+	          "field": "os.raw",
+	          "precision_threshold" : 100
+	        }
+      	      },
+	      "aggs": {
+      	        "distinct_download": {
+                  "cardinality": {
+	            "field": "downloadCount.raw",
+	            "precision_threshold" : 100
+	          }
+      	        },
+		"aggs": {
+      	  	  "distinct_country": {
+                    "cardinality": {
+	              "field": "country_name.raw",
+	              "precision_threshold" : 100
+	            }
+      	          },
+		  "aggs": {
+      	  	    "distinct_application": {
+            	      "cardinality": {
+	      	        "field": "application",
+	      		"precision_threshold" : 100
+	    	      }
+      	  	    },
+		    "aggs": {
+      	  	      "distinct_ip": {
+            	        "cardinality": {
+	      	          "field": "clientip.raw",
+	  		  "precision_threshold" : 100
+	    		}
+      	              }
+    	            }
+    		  }
+    	        }
+    	      }
+    	    }
+    	  }
+    	}
+      }
+    }
+  }
+}

@@ -1,4 +1,14 @@
-class elk::dependencies{
+class elk::dependencies(
+  $user     = $elk::params::user,
+  $shell    = $elk::params::shell,
+  $password = $elk::params::password,
+  $comment  = $elk::params::comment
+) inherits elk::params{
+  include users
+  Package {
+    ensure => installed,
+  }
+
   exec {'update':
     user     => root,
     command  => 'sudo apt-get update -y --fix-missing',
@@ -6,11 +16,18 @@ class elk::dependencies{
     path     => ["/bin", "/usr/bin", "/usr/sbin"],
   } ->
 
-  package {'openjdk-7-jdk':
-    ensure => present,
-  } ->
+  package {'openjdk-7-jdk':} ->
 
-  package {'emacs':
-    ensure => present,
+  package {'git':} ->
+
+  package {'emacs':} ->
+
+  package {'openssh-server':}
+
+  users::add {"${user}":
+    shell => $shell,
+    password_hash => $password,
+    comment => $comment,
   }
+
 }

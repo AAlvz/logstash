@@ -3,7 +3,7 @@
 if [[ $# < 3 ]]
   then
   echo "You are not using the script the way you should"
-  echo "Use './addJSON ['host'] ['index'] ['field'] ['id']' "
+  echo "Use './addJSON ['host'] ['index'] ['type'] ['id']' "
   exit
 fi
 

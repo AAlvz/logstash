@@ -1,0 +1,30 @@
+{
+    "_shards": {
+        "failed": 0, 
+        "successful": 1, 
+        "total": 1
+    }, 
+    "hits": {
+        "hits": [
+            {
+                "_id": "First-Dashboard", 
+                "_index": ".kibana", 
+                "_score": 1.0, 
+                "_source": {
+                    "description": "", 
+                    "hits": 0, 
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\"}}}]}"
+                    }, 
+                    "panelsJSON": "[{\"col\":1,\"row\":8,\"size_x\":6,\"size_y\":7,\"visId\":\"Weekly-active-users-(Top)\"},{\"col\":10,\"row\":1,\"size_x\":3,\"size_y\":5,\"visId\":\"Top-Browsers-of-Top-Countries.-(Pie)\"},{\"col\":7,\"row\":10,\"size_x\":6,\"size_y\":2,\"visId\":\"Users-per-country\"},{\"col\":7,\"row\":12,\"size_x\":6,\"size_y\":3,\"visId\":\"Top-10-Browsers\\\\\"},{\"col\":1,\"row\":1,\"size_x\":9,\"size_y\":7,\"visId\":\"Map-requests\"},{\"visId\":\"DDOS-questionmark-\",\"size_x\":3,\"size_y\":4,\"col\":10,\"row\":6},{\"visId\":\"Adblock-+-AdblockPlus-Percentage\",\"size_x\":3,\"size_y\":2,\"col\":7,\"row\":8}]", 
+                    "title": "First Dashboard"
+                }, 
+                "_type": "dashboard"
+            }
+        ], 
+        "max_score": 1.0, 
+        "total": 1
+    }, 
+    "timed_out": false, 
+    "took": 1
+}

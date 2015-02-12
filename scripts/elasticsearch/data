@@ -4,7 +4,7 @@ if [[ $# != 2 ]]
   then
   echo "You are not using the script the way you should"
   echo "Use './data ['host'] ['action']' "
-  echo "Possible actions: deleteall getall getindexes "
+  echo "Possible actions: deleteall getall getindexes getvisualizations getdashboards  'adddashboard name jsonfile' "
   exit
 fi
 
@@ -19,5 +19,19 @@ elif [[ $2 == "getall" ]]
 elif [[ $2 == "getindexes" ]]
   then
   curl $1':9200/_cat/indices?v'
+
+elif [[ $2 == "getvisualizations" ]]
+  then
+  curl -XGET $1':9200/.kibana/visualization/_search?'
+
+elif [[ $2 == "getdashboards" ]]
+  then
+  curl -XGET $1':9200/.kibana/dashboard/_search?'
 fi
+
+elif [[ $2 == "adddashboard" ]]
+  then
+  curl -XPUT $1':9200/.kibana/dashboard/'$2 -d $3
+fi
+
 exit

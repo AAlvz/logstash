@@ -1,0 +1,26 @@
+{
+    "size": 0,
+    "aggs": {
+	"distinct_date": {
+	    "terms": {
+		"field": "@timestamp"
+	    },
+	    "aggs": {
+		"distinct_downloadCount": {
+		    "terms": {
+			"field": "downloadCount"
+		    },
+		    "aggs": {
+			"distinct_ip": {
+			    "cardinality": {
+				"field": "clientip",
+				"precision_threshold": 100
+			    }
+			}
+		    }
+		}
+	    }
+	}
+    }
+}
+
