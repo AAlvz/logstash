@@ -17,10 +17,14 @@ class elk::logstash{
     ensure => installed,
   } ->
 
+  file {'/etc/logstash/conf.d':
+    ensure  => directory,
+  } ->
+
   file {'/opt/logstash/patterns/host-adblockplus':
     ensure => file,
     source => "puppet:///modules/elk/host-adblockplus",
-  }
+  } ->  
 
   file {'/etc/logstash/conf.d/logstash.conf':
     ensure  => file,
