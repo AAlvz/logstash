@@ -28,6 +28,7 @@ filter {
     mutate {
       split  => ["[lang]", ","]
       add_field => ["lang_real", "%{[lang][0]}"]
+      add_field => ["ip_agent", "%{clientip}%{agent}"]
     }
 
     useragent {
@@ -54,7 +55,7 @@ output {
   if "_grokparsefailure" in [tags] {
     #stdout { codec => rubydebug }
     file {
-      path => "/vagrant/error_logs/output_tcp_failed"
+      path => "/home/<%= @user %>/logstash/error_logs/output_tcp_failed"
       codec => line
     }
   } else {
