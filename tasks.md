@@ -19,12 +19,13 @@ In order of priority
 - [X] Scripted fields to make better aggregations
 - [X] Fix aggregation with ip_agent
 - [X] Initial setup virtual machine for testing
-- [ ] Puppet configuration for initial setup. 
-- [ ] Puppet to stop 'logstash-web' service
+- [X] Puppet configuration for initial setup. 
+- [X] Puppet to stop 'logstash-web' service
+- [ ] Load dashboards and visualizations to the xenserver
 - [ ] Fix failed parsing with israellist logs
-- [ ] Make aggregations for downloads (code & kibana)
-- [ ] Make aggregations with addoname (The ones Kirill asked) (code & kibana)
-- [ ] Improve puppet module to parse abp nginx logs in port 3333 at boot.
+- [X] Make aggregations for downloads (code & kibana)
+- [X] Make aggregations with addoname (The ones Kirill asked) (code & kibana)
+- [X] Improve puppet module to parse abp nginx logs in port 3333 at boot.
 - [X] Where are the aggregations?
 - [X] Know how to make aggregations manually. (code)
 - [X] Parese everything in JSON and send it to Kirill.
