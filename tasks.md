@@ -50,6 +50,7 @@ IMPORTANT AGGREGATIONS
 - How many downlads
 - ABP reviews
 - How many people have adblock + adblock plus
+- Filter for city name
 
 STRANGE DETAILS
 - Possible DDOS Attacks from time to time.
