@@ -27,7 +27,6 @@ elif [[ $2 == "getvisualizations" ]]
 elif [[ $2 == "getdashboards" ]]
   then
   curl -XGET $1':9200/.kibana/dashboard/_search?'
-fi
 
 elif [[ $2 == "adddashboard" ]]
   then
