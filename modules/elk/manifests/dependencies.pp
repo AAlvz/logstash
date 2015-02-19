@@ -30,4 +30,10 @@ class elk::dependencies(
     comment => $comment,
   }
 
+  file { '/var/log/abp':
+    ensure => 'directory',
+    owner  => "${user}",
+    group  => "${user}",
+  }
+
 }
