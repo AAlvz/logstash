@@ -1,6 +1,6 @@
 input {
   file {
-    path => "/home/aalvarez/logstash/logs/millionlines"
+    path => "<%= @log_path %>"
     start_position => beginning
     sincedb_path => "/dev/null"
   }
@@ -51,18 +51,18 @@ filter {
 }
 
 output {
-  #stdout { codec => rubydebug }
+  stdout { codec => rubydebug }
   if "_grokparsefailure" in [tags] {
     #stdout { codec => rubydebug }
     file {
-      path => "/vagrant/error_logs/output_tcp_failed"
+      path => "/home/<%= @user %>/logstash/error_logs/output_tcp_failed"
       codec => line
     }
   } else {
-    stdout { codec => dots }
-    elasticsearch {
-      host => localhost
-      protocol => "http"
-    }
+    #stdout { codec => dots }
+    # elasticsearch {
+    #   host => localhost
+    #   protocol => "http"
+    # }
   }
 }

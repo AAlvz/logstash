@@ -19,6 +19,7 @@ class elk::kibana{
 
   exec {'initiate_kibana':
     command => "/home/${user}/kibana-4.0.0-beta3/bin/kibana &",
+    user    => "${user}",
   } ->
 
   cron {'initiate_kibana':
