@@ -4,6 +4,7 @@ class elk::logstash{
   $ls_repo  = "deb http://packages.elasticsearch.org/logstash/1.4/debian stable main"
   $user     = $elk::user
   $log_path = $elk::log_path
+  $log_media = $elk::log_media
 
   exec {'add_ls_repository':
     user    => root,
@@ -26,10 +27,8 @@ class elk::logstash{
     source => "puppet:///modules/elk/host-adblockplus",
   } ->
 
-  file {'/etc/logstash/conf.d/logstash.conf':
-    ensure  => file,
-    content => template('elk/simple_nginx.conf.erb'),
-  } ->
+  logstash_conf {'simple_nginx.conf':} ->
+  logstash_conf {'media.logstash':} ->
 
   service {'logstash-web':
     ensure => stopped,
@@ -37,6 +36,13 @@ class elk::logstash{
 
   service {'logstash':
     ensure => running,
+  }
+
+  define logstash_conf($fname = $title){
+    file {"/etc/logstash/conf.d/${fname}":
+      ensure  => file,
+      content => template("elk/${fname}.erb"),
+    }
   }
 
 }
