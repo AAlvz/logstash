@@ -7,7 +7,7 @@ class users {
       comment    => $comment,
       home       => "/home/${username}",
       managehome => true,
-      groups     => "${username}",
+      gid        => "${username}",
       require    => Group["${username}"],
     }
 
