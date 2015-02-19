@@ -1,0 +1,41 @@
+input {
+  file {
+    path => "/vagrant/logs/media.log"
+    start_position => beginning
+    sincedb_path => "/dev/null"
+  }
+}
+
+filter {
+  if [path] =~ "twitter" {n
+    mutate {
+      replace => { "type" => "twitter" }
+    }
+  }
+    grok {
+      patterns_dir => "/vagrant/patterns_logstash"
+      match => {"message" => '%{TWITTERLOG}'}
+    }
+
+    date {
+      match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
+    }
+
+}
+
+output {
+  stdout { codec => rubydebug }
+  if "_grokparsefailure" in [tags] {
+    #stdout { codec => rubydebug }
+    #file {
+    #  path => "/vagrant/error_logs/media_log_failed"
+    #  codec => line
+    #}
+  } else {
+    #stdout { codec => dots }
+    # elasticsearch {
+    #   host => localhost
+    #   protocol => "http"
+    # }
+  }
+}
