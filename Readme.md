@@ -9,13 +9,17 @@ This is an introduction to ELK.
 
 Now you can provision everything with puppet.
 
-After provision:
+Configurations needed:
 
-To send logs to the vagrant instance you can use:
+/modules/elk/manifests/params.pp
 
-`nc 192.168.33.10 3333 < apache_logs_file`
+Be sure your logs are on the correct folder.
 
-and after that visualize everything in:
+Currently it will work for nginx access logs.
+
+If you need different kind of logs, make sure to create a logstas.conf file.
+
+You can visualize everything in:
 
 `192.168.33.10:5601`
 
