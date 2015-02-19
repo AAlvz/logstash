@@ -2,9 +2,12 @@ class elk::kibana{
   $rc_kibana = "https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-rc1-linux-x64.tar.gz"
   $user = $elk::user
 
+  include elk::dependencies
+
   Exec {
-    cwd  => "/home/${user}",
-    path => ["/bin", "/usr/bin", "/usr/sbin"],
+    cwd     => "/home/${user}",
+    path    => ["/bin", "/usr/bin", "/usr/sbin"],
+    require => Class['elk::dependencies']
   }
 
   exec {'download_kibana':
