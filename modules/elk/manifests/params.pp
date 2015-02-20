@@ -3,6 +3,6 @@ class elk::params{
   $shell    = '/bin/bash'
   $password = '$6$WlOB9RFQAZ99qwC$gU9G6wnL.H7HMm3.zJq2c5ITqCGqxFhk8y9kNuF9HBkLc7JTYsa2TAcu1oOifw5jG/tHFPVTyeZixcWYQVRpL.'
   $comment  = 'Created by Puppet'
-  $log_media= '/var/log/abp/media.log'
-  $log_path = '/vagrant/logs/millionlines'
+  $log_media= '/var/log/abp/*'
+  $log_path = '/vagrant/logs/access_nginx'
 }
