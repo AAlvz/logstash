@@ -27,6 +27,7 @@ class elk::crons{
     hour => '*',
     minute => '*/5',
     require => File['/etc/opera.sh'],
+  }
 
   file {'/etc/googleplus.sh':
     ensure => present,
