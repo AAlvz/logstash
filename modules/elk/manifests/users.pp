@@ -11,7 +11,7 @@ class users {
       require    => Group["${username}"],
     }
 
-    group { $username:
+    group { "${username}":
       ensure => present,
     }
   }

@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "public_network"
   config.vm.provision "puppet" do |puppet|
     puppet.module_path = "modules"
+    puppet.options = "--verbose --debug"
   end
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
