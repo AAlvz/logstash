@@ -17,7 +17,7 @@ filter {
     }
   }
     grok {
-      patterns_dir => "/vagrant/patterns_logstash"
+      patterns_dir => "/opt/logstash/patterns/host-adblockplus"
       match => {"message" => '%{NGINXACCESS}'}
     }
 

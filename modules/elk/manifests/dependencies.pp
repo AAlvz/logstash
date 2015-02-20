@@ -28,6 +28,12 @@ class elk::dependencies(
     shell => $shell,
     password_hash => $password,
     comment => $comment,
+  } ->
+
+  file { '/var/log/abp':
+    ensure => 'directory',
+    owner  => "${user}",
+    group  => "${user}",
   }
 
 }
