@@ -20,7 +20,7 @@ class elk::crons{
     mode => '755',
     source => "puppet:///modules/elk/googleplus.sh",
   }
-  
+
   cron {'googleplus':
     command => '/etc/googleplus.sh',
     user => "${elk::params::user}",

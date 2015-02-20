@@ -6,6 +6,6 @@ FOLLOWERS=$(wget -q -O- 'https://plus.google.com/+AdblockPlus' \
     | sed -e 's/.*class="BOfSxb">\([0-9.]\+\).*/\1/' \
           -e 's/\.//')
 
-printf "[$NOW] $FOLLOWERS googleplus\n" >> media.log
+printf "[$NOW] $FOLLOWERS googleplus\n" >> /var/log/abp/media.log
 
 
