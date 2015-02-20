@@ -34,6 +34,7 @@ class elk::dependencies(
     ensure => 'directory',
     owner  => "${user}",
     group  => "${user}",
+    mode   => "0644",
   }
 
 }
