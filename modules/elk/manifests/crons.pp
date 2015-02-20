@@ -14,4 +14,19 @@ class elk::crons{
     require => File['/etc/twitter.sh'],
   }
 
+  file {'/etc/opera.sh':
+    ensure => present,
+    owner => "${elk::params::user}",
+    mode => '755',
+    source => "puppet:///modules/elk/opera.sh",
+  }
+
+  cron {'opera':
+    command => '/etc/opera.sh',
+    user => "${elk::params::user}",
+    hour => '*',
+    minute => '*/5',
+    require => File['/etc/opera.sh'],
+  }
+
 }
