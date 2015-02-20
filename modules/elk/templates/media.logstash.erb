@@ -7,6 +7,7 @@ input {
 }
 
 filter {
+  if [path] =~ "media" {
     grok {
       patterns_dir => "/opt/logstash/patterns/host-adblockplus"
       match => {"message" => '%{TWITTERLOG}'}
@@ -19,22 +20,23 @@ filter {
     date {
       match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
     }
+    }
 
 }
 
 output {
-  stdout { codec => rubydebug }
+  #stdout { codec => rubydebug }
   if "_grokparsefailure" in [tags] {
-    #stdout { codec => rubydebug }
-    #file {
-    #  path => "/home/<%= @user %>/logstash/error_logs/media_logs_failed"
-    #  codec => line
-    #}
-  } else {
-    #stdout { codec => dots }
-    # elasticsearch {
-    #   host => localhost
-    #   protocol => "http"
+    stdout { codec => rubydebug }
+    # file {
+    #   path => "/home/<%= @user %>/logstash/error_logs/media_logs_failed"
+    #   codec => line
     # }
+  } else {
+    stdout { codec => dots }
+    elasticsearch {
+      host => localhost
+      protocol => "http"
+    }
   }
 }

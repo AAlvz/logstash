@@ -7,15 +7,16 @@ input {
 }
 
 filter {
-  if [path] =~ "filter" {
-    mutate {
-      replace => { "type" => "filter1_easylist" }
+  if [path] =~ "acces_nginx" {
+    # mutate {
+    #   replace => { "type" => "filter1_easylist" }
+    # }
+    if [path] =~ "notification" {
+      mutate {
+        replace => { "type" => "notification1_notification" }
+      }
     }
-  } else if [path] =~ "notification" {
-    mutate {
-      replace => { "type" => "notification1_notification" }
-    }
-  }
+
     grok {
       patterns_dir => "/opt/logstash/patterns/host-adblockplus"
       match => {"message" => '%{NGINXACCESS}'}
@@ -47,22 +48,23 @@ filter {
     date {
       match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
     }
+  }
 
 }
 
 output {
-  stdout { codec => rubydebug }
+  #stdout { codec => rubydebug }
   if "_grokparsefailure" in [tags] {
-    #stdout { codec => rubydebug }
-    file {
-      path => "/home/<%= @user %>/logstash/error_logs/output_tcp_failed"
-      codec => line
-    }
-  } else {
-    #stdout { codec => dots }
-    # elasticsearch {
-    #   host => localhost
-    #   protocol => "http"
+    stdout { codec => rubydebug }
+    # file {
+    #   path => "/home/<%= @user %>/logstash/error_logs/output_tcp_failed"
+    #   codec => line
     # }
+  } else {
+    stdout { codec => dots }
+    elasticsearch {
+      host => localhost
+      protocol => "http"
+    }
   }
 }
