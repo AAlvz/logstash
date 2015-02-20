@@ -7,7 +7,7 @@ input {
 }
 
 filter {
-  if [path] =~ "media" {
+  if [path] =~ "media" or [path] =~ "downloads" {
     grok {
       patterns_dir => "/opt/logstash/patterns/host-adblockplus"
       match => {"message" => '%{TWITTERLOG}'}
@@ -17,10 +17,16 @@ filter {
       replace => { "type" => "%{source}" }
     }
 
+    if [path] =~ "downloads" {
+      mutate {
+        rename => [ "Followers", "downloads" ]
+      }
+    }
+
     date {
       match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
     }
-    }
+  }
 
 }
 
