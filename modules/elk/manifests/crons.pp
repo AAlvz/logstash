@@ -44,4 +44,20 @@ class elk::crons{
     require => File['/etc/googleplus.sh'],
   }
 
+  file {'/etc/facebook.sh':
+    ensure => present,
+    owner => "${elk::params::user}",
+    mode => '755',
+    source => "puppet:///modules/elk/facebook.sh",
+  }
+
+  cron {'facebook':
+    command => '/etc/facebook.sh',
+    user => "${elk::params::user}",
+    hour => '*',
+    minute => '*/5',
+    require => File['/etc/facebook.sh'],
+  }
+
+
 }
