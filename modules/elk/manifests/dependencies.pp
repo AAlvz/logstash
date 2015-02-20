@@ -37,7 +37,7 @@ class elk::dependencies(
     mode   => "0644",
   } ->
 
-  file { '/var/log/abp/media.log':
+  file { ['/var/log/abp/media.log', '/var/log/abp/downloads.log']:
     ensure => file,
     owner  => "${user}",
     group  => "${user}",
