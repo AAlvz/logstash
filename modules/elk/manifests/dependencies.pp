@@ -28,6 +28,27 @@ class elk::dependencies(
     shell => $shell,
     password_hash => $password,
     comment => $comment,
+  } ->
+
+  file { '/var/log/abp':
+    ensure => 'directory',
+    owner  => "${user}",
+    group  => "${user}",
+    mode   => "0644",
+  } ->
+
+  file { '/var/log/abp/media.log':
+    ensure => file,
+    owner  => "${user}",
+    group  => "${user}",
+    mode   => "0644",
+  } ->
+
+  file { '/var/log/abp/downloads.log':
+    ensure => file,
+    owner  => "${user}",
+    group  => "${user}",
+    mode   => "0644",
   }
 
 }

@@ -19,8 +19,11 @@ In order of priority
 - [X] Scripted fields to make better aggregations
 - [X] Fix aggregation with ip_agent
 - [X] Initial setup virtual machine for testing
-- [X] Puppet configuration for initial setup. 
+- [X] Puppet configuration for initial setup.
 - [X] Puppet to stop 'logstash-web' service
+- [X] Integrated media logs anaysis (twitter)
+- [X] Puppet upgraded to handle more logstash files
+- [ ] Upgrade ES (See `Upgrade ES`)
 - [ ] Load dashboards and visualizations to the xenserver
 - [ ] Fix failed parsing with israellist logs
 - [X] Make aggregations for downloads (code & kibana)
@@ -65,3 +68,13 @@ WHAT ELSE CAN BE DONE
 
 IDEAS:
 - Active users -> The ones whose Chrome browser has checked for an update
+
+UPGRADE ES
+ 1. disable shard allocation
+ 2. shutdown the node
+ 3. upgrade ES
+ 4. start ES wait until it join the node
+ 5. activate shard allocation
+ 6. wait until cluster is happy
+ 7. repeat for every node
+ ... quoting <nokiomanz>

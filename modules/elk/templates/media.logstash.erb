@@ -1,0 +1,48 @@
+input {
+  file {
+    path => "<%= @log_media %>"
+    start_position => beginning
+    sincedb_path => "/dev/null"
+  }
+}
+
+filter {
+  if [path] =~ "media" or [path] =~ "downloads" {
+    grok {
+      patterns_dir => "/opt/logstash/patterns/host-adblockplus"
+      match => {"message" => '%{TWITTERLOG}'}
+    }
+
+    mutate {
+      replace => { "type" => "%{source}" }
+    }
+
+    if [path] =~ "downloads" {
+      mutate {
+        rename => [ "Followers", "downloads" ]
+      }
+    }
+
+    date {
+      match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
+    }
+  }
+
+}
+
+output {
+  #stdout { codec => rubydebug }
+  if "_grokparsefailure" in [tags] {
+    stdout { codec => rubydebug }
+    # file {
+    #   path => "/home/<%= @user %>/logstash/error_logs/media_logs_failed"
+    #   codec => line
+    # }
+  } else {
+    stdout { codec => dots }
+    elasticsearch {
+      host => localhost
+      protocol => "http"
+    }
+  }
+}
