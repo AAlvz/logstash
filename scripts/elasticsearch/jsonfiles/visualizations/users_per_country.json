@@ -1,0 +1,36 @@
+{
+  "type": "histogram",
+  "params": {
+    "shareYAxis": true,
+    "addTooltip": true,
+    "addLegend": true,
+    "mode": "stacked"
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "cardinality",
+      "schema": "metric",
+      "params": {
+        "field": "ip_agent"
+      }
+    },
+    {
+      "id": 2,
+      "type": "terms",
+      "schema": "segment",
+      "params": {
+        "field": "geoip.country_name.raw",
+        "size": 5,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    }
+  ],
+  "listeners": {}
+}

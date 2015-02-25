@@ -1,0 +1,34 @@
+{
+  "type": "pie",
+  "params": {
+    "addLegend": true,
+    "addTooltip": true,
+    "isDonut": false,
+    "shareYAxis": true
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "count",
+      "schema": "metric",
+      "params": {}
+    },
+    {
+      "id": 2,
+      "type": "terms",
+      "schema": "segment",
+      "params": {
+        "field": "adblock.raw",
+        "size": 500,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    }
+  ],
+  "listeners": {}
+}

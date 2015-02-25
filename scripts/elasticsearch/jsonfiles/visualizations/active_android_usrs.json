@@ -1,0 +1,17 @@
+{
+  "type": "metric",
+  "params": {
+    "fontSize": 60
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "cardinality",
+      "schema": "metric",
+      "params": {
+        "field": "ip_agent"
+      }
+    }
+  ],
+  "listeners": {}
+}

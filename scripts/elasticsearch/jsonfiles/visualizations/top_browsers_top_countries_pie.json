@@ -1,0 +1,51 @@
+{
+  "aggs": [
+    {
+      "id": 1,
+      "params": {},
+      "schema": "metric",
+      "type": "count"
+    },
+    {
+      "id": 2,
+      "params": {
+        "exclude": {
+          "flags": []
+        },
+        "field": "geoip.country_name.raw",
+        "include": {
+          "flags": []
+        },
+        "order": "desc",
+        "row": true,
+        "size": 5
+      },
+      "schema": "split",
+      "type": "terms"
+    },
+    {
+      "id": 3,
+      "params": {
+        "exclude": {
+          "flags": []
+        },
+        "field": "name.raw",
+        "include": {
+          "flags": []
+        },
+        "order": "desc",
+        "size": 5
+      },
+      "schema": "segment",
+      "type": "terms"
+    }
+  ],
+  "listeners": {},
+  "params": {
+    "addLegend": true,
+    "addTooltip": true,
+    "isDonut": false,
+    "shareYAxis": true
+  },
+  "type": "pie"
+}

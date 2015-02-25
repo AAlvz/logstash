@@ -1,0 +1,52 @@
+{
+  "type": "area",
+  "params": {
+    "shareYAxis": true,
+    "addTooltip": true,
+    "addLegend": true,
+    "mode": "overlap"
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "cardinality",
+      "schema": "metric",
+      "params": {
+        "field": "ip_agent"
+      }
+    },
+    {
+      "id": 2,
+      "type": "terms",
+      "schema": "segment",
+      "params": {
+        "field": "name.raw",
+        "size": 5,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "terms",
+      "schema": "group",
+      "params": {
+        "field": "geoip.country_name.raw",
+        "size": 4,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    }
+  ],
+  "listeners": {}
+}

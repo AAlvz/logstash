@@ -1,0 +1,47 @@
+{
+  "type": "area",
+  "params": {
+    "shareYAxis": true,
+    "addTooltip": true,
+    "addLegend": true,
+    "mode": "stacked"
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "cardinality",
+      "schema": "metric",
+      "params": {
+        "field": "bytes.raw"
+      }
+    },
+    {
+      "id": 2,
+      "type": "date_histogram",
+      "schema": "segment",
+      "params": {
+        "field": "@timestamp",
+        "interval": "auto",
+        "min_doc_count": 1,
+        "extended_bounds": {}
+      }
+    },
+    {
+      "id": 3,
+      "type": "terms",
+      "schema": "group",
+      "params": {
+        "field": "geoip.country_name.raw",
+        "size": 5,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    }
+  ],
+  "listeners": {}
+}

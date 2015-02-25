@@ -1,0 +1,34 @@
+{
+  "type": "histogram",
+  "params": {
+    "shareYAxis": true,
+    "addTooltip": true,
+    "addLegend": true,
+    "mode": "stacked"
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "count",
+      "schema": "metric",
+      "params": {}
+    },
+    {
+      "id": 2,
+      "type": "terms",
+      "schema": "segment",
+      "params": {
+        "field": "name.raw",
+        "size": 10,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    }
+  ],
+  "listeners": {}
+}

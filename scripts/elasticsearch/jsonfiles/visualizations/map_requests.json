@@ -1,0 +1,24 @@
+{
+  "aggs": [
+    {
+      "id": 1,
+      "params": {},
+      "schema": "metric",
+      "type": "count"
+    },
+    {
+      "id": 2,
+      "params": {
+        "field": "geoip.location",
+        "precision": "4"
+      },
+      "schema": "segment",
+      "type": "geohash_grid"
+    }
+  ],
+  "listeners": {},
+  "params": {
+    "mapType": "Shaded Circle Markers"
+  },
+  "type": "tile_map"
+}

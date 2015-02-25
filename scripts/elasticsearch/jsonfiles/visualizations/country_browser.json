@@ -1,0 +1,61 @@
+{
+  "type": "histogram",
+  "params": {
+    "shareYAxis": true,
+    "addTooltip": true,
+    "addLegend": true,
+    "mode": "stacked"
+  },
+  "aggs": [
+    {
+      "id": 1,
+      "type": "cardinality",
+      "schema": "metric",
+      "params": {
+        "field": "clientip.raw"
+      }
+    },
+    {
+      "id": 2,
+      "type": "cardinality",
+      "schema": "metric",
+      "params": {
+        "field": "agent.raw"
+      }
+    },
+    {
+      "id": 3,
+      "type": "terms",
+      "schema": "segment",
+      "params": {
+        "field": "name.raw",
+        "size": 3,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "terms",
+      "schema": "split",
+      "params": {
+        "field": "geoip.country_name.raw",
+        "size": 5,
+        "order": "desc",
+        "exclude": {
+          "flags": []
+        },
+        "include": {
+          "flags": []
+        },
+        "row": true
+      }
+    }
+  ],
+  "listeners": {}
+}
