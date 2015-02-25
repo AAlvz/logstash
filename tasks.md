@@ -45,6 +45,7 @@ Without any additional content around it.
 For example:
 curl -XGET 'localhost:9200/.kibana/visualization/_search?' | python -m json.too
 curl -XGET 'http://localhost:9200/.kibana/visualization/Users-per-country/_source?_source_include=*.id&_source_exclude=entities'
+curl -XGET "192.168.33.10:9200/.kibana/dashboard/_search?size=1000&pretty=true"
 
 
 IMPORTANT AGGREGATIONS
